@@ -1,30 +1,30 @@
 'use client';
-
+ 
 import React, { useState } from 'react';
 import { Mail, ArrowRight, Check } from 'lucide-react';
-
+ 
 export default function MxnifestdreamsWebsite() {
   const [currentPage, setCurrentPage] = useState('home');
   const [email, setEmail] = useState('');
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
-
+ 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     setEmailError('');
-
+ 
     if (!email) {
       setEmailError('Email is required');
       return;
     }
-
+ 
     try {
       const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, message: 'Email signup from mxnifestdreams website' })
       });
-
+ 
       if (response.ok) {
         setEmailSubmitted(true);
         setEmail('');
@@ -36,7 +36,7 @@ export default function MxnifestdreamsWebsite() {
       setEmailError('Error submitting. Try again later.');
     }
   };
-
+ 
   return (
     <div style={{ background: '#faf9f7', color: '#2d2d2d', minHeight: '100vh' }}>
       {/* Header */}
@@ -53,7 +53,7 @@ export default function MxnifestdreamsWebsite() {
           </nav>
         </div>
       </header>
-
+ 
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
         {/* Home Page */}
         {currentPage === 'home' && (
@@ -63,7 +63,7 @@ export default function MxnifestdreamsWebsite() {
               <p style={{ fontSize: '15px', color: '#666', marginBottom: '24px', lineHeight: '1.6', maxWidth: '600px', margin: '0 auto 24px' }}>Whether it's your specific person, a new life, or anything else — I teach you the exact method to become that person. That's it. And I'm here to help you do it.</p>
               <a href="https://substack.com/@mxnifestdreams" style={{ display: 'inline-block', background: '#1a1a1a', color: 'white', padding: '12px 32px', borderRadius: '8px', textDecoration: 'none', fontWeight: '500', fontSize: '14px' }}>start reading on substack</a>
             </div>
-
+ 
             {/* Testimonials */}
             <div style={{ padding: '48px 0' }}>
               <h3 style={{ fontSize: '18px', fontWeight: '500', textAlign: 'center', marginBottom: '32px', color: '#1a1a1a' }}>real results from real clients</h3>
@@ -81,7 +81,7 @@ export default function MxnifestdreamsWebsite() {
                 ))}
               </div>
             </div>
-
+ 
             {/* Services */}
             <div style={{ padding: '48px 0', background: 'white', margin: '32px 0', borderRadius: '12px', border: '1px solid #e8e8e8', textAlign: 'center' }}>
               <h3 style={{ fontSize: '18px', fontWeight: '500', marginBottom: '24px', color: '#1a1a1a' }}>coaching & community</h3>
@@ -99,7 +99,7 @@ export default function MxnifestdreamsWebsite() {
                 ))}
               </div>
             </div>
-
+ 
             {/* Email Capture */}
             <div style={{ padding: '32px', background: '#f5f3f0', borderRadius: '12px', textAlign: 'center', margin: '32px 0' }}>
               <h3 style={{ fontSize: '16px', fontWeight: '500', marginBottom: '12px', color: '#1a1a1a' }}>join the free community</h3>
@@ -113,7 +113,7 @@ export default function MxnifestdreamsWebsite() {
             </div>
           </>
         )}
-
+ 
         {/* About Page */}
         {currentPage === 'about' && (
           <div style={{ padding: '48px 0', background: 'white', margin: '32px 0', borderRadius: '12px', border: '1px solid #e8e8e8', padding: '32px' }}>
@@ -122,7 +122,7 @@ export default function MxnifestdreamsWebsite() {
             <p style={{ fontSize: '15px', color: '#666', lineHeight: '1.7' }}>For over 6 years, I've worked with clients to shift their self-concept and manifest everything from specific people to entirely new lives. Every client who's seen results did one thing: they became the person who already had what they wanted.</p>
           </div>
         )}
-
+ 
         {/* Inner Room Page */}
         {currentPage === 'inner-room' && (
           <div style={{ padding: '48px 0', background: 'white', margin: '32px 0', borderRadius: '12px', border: '1px solid #e8e8e8', padding: '32px', textAlign: 'center' }}>
@@ -131,7 +131,7 @@ export default function MxnifestdreamsWebsite() {
             <a href="https://substack.com/@mxnifestdreams" style={{ display: 'inline-block', background: '#1a1a1a', color: 'white', padding: '12px 32px', borderRadius: '8px', textDecoration: 'none', fontWeight: '500', fontSize: '14px' }}>join the free substack first</a>
           </div>
         )}
-
+ 
         {/* Resources Page */}
         {currentPage === 'resources' && (
           <div style={{ padding: '48px 0', background: 'white', margin: '32px 0', borderRadius: '12px', border: '1px solid #e8e8e8', padding: '32px' }}>
@@ -153,7 +153,7 @@ export default function MxnifestdreamsWebsite() {
           </div>
         )}
       </div>
-
+ 
       {/* Footer */}
       <footer style={{ textAlign: 'center', padding: '32px 0', borderTop: '1px solid #e8e8e8', fontSize: '13px', color: '#999', marginTop: '32px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
@@ -169,3 +169,4 @@ export default function MxnifestdreamsWebsite() {
     </div>
   );
 }
+ 
